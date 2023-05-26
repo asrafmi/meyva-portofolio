@@ -3,58 +3,58 @@ import { PhoneIcon, MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid'
 import { useForm, SubmitHandler } from "react-hook-form";
 
 interface IFormInput {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
 }
 
 type Props = {}
 
-function ContactMe({}: Props) {
-const { register, handleSubmit } = useForm<IFormInput>();
-const onSubmit: SubmitHandler<IFormInput> = (formData) => {
-    window.location.href = `mailto:asrafmuhizz@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
-}
-  return (
-    <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-        <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
-            ContactMe
-        </h3>
-        <div className='flex flex-col space-y-10'>
-            <h4 className='text-4xl font-semibold text-center'>
-                I have got just what you need.{" "}
-                <span className='decoration-[#F7AB0A]/50 underline'>Lets Talk</span>
-            </h4>
-            <div className='space-y-10'>
-                <div className='flex items-center space-x-5 justify-center'>
-                    <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse'/>
-                    <p className='text-2x;'>082245101283</p>
+function ContactMe({ }: Props) {
+    const { register, handleSubmit } = useForm<IFormInput>();
+    const onSubmit: SubmitHandler<IFormInput> = (formData) => {
+        window.location.href = `mailto:ivahrpy@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`
+    }
+    return (
+        <div className='h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-70 justify-evenly mx-auto items-center'>
+            <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
+                ContactMe
+            </h3>
+            <div className='flex flex-col space-y-10'>
+                <h4 className='text-4xl font-semibold text-center'>
+                    I have got just what you need.{" "}
+                    <span className='decoration-[#F7AB0A]/50 underline'>Lets Talk</span>
+                </h4>
+                <div className='space-y-10'>
+                    <div className='flex items-center space-x-5 justify-center'>
+                        <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+                        <p className='text-2x;'>082245101283</p>
+                    </div>
+                    <div className='flex items-center space-x-5 justify-center'>
+                        <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+                        <p className='text-2x;'>Surabaya, East Java</p>
+                    </div>
+                    <div className='flex items-center space-x-5 justify-center'>
+                        <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+                        <p className='text-2x;'>ivahrpy@gmail.com</p>
+                    </div>
                 </div>
-                <div className='flex items-center space-x-5 justify-center'>
-                    <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse'/>
-                    <p className='text-2x;'>Bandung, West Java</p>
-                </div>
-                <div className='flex items-center space-x-5 justify-center'>
-                    <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse'/>
-                    <p className='text-2x;'>asrafmuhizz@gmail.com</p>
-                </div>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto'>
-                 <div className='flex space-x-2'>
-                    <input {...register('name')} placeholder='Name' className='inputField' type="text" />
-                    <input {...register('email')} placeholder='Email' className='inputField' type="email" />
-                 </div>
-                 <input {...register('subject')} placeholder='Subject' className='inputField' type="text" />
-                 <textarea {...register('message')} placeholder='Message' className='inputField' />
-                 <button 
-                 type='submit'
-                 className='bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold
+                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto'>
+                    <div className='flex space-x-2'>
+                        <input {...register('name')} placeholder='Name' className='inputField' type="text" />
+                        <input {...register('email')} placeholder='Email' className='inputField' type="email" />
+                    </div>
+                    <input {...register('subject')} placeholder='Subject' className='inputField' type="text" />
+                    <textarea {...register('message')} placeholder='Message' className='inputField' />
+                    <button
+                        type='submit'
+                        className='bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold
                  '>Submit</button>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ContactMe

@@ -1,55 +1,62 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Project } from '@/typings'
+import { urlFor } from '@/sanity'
 
-type Props = {}
+type Props = {
+    projects: Project[]
+}
 
-export default function Projects({}: Props) {
-  const projects = [1,2,3,4,5]
-  return (
-    <motion.div 
-        className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row 
+export default function Projects({ projects }: Props) {
+    return (
+        <motion.div
+            className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row 
         max-w-full justify-evenly mx-auto items-center z-0'
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-    >
-        <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
-            Projects
-        </h3>
-        <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin'>
-            {projects.map((project, i) => (
-                <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+        >
+            <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
+                Projects
+            </h3>
+            <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin'>
+                {projects.map((project, i) => (
+                    <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center 
                 justify-center p-20 md:p-44 h-screen'>
-                    <motion.img
-                    initial={{
-                        y: -300,
-                        opacity: 0
-                    }}
-                    whileInView={{
-                        y: 0,
-                        opacity: 1
-                    }}
-                    transition={{ duration: 1.2 }}
-                    viewport={{ once: true }}
-                    src="/avatar.jpg"
-                    alt=""
-                    className='w-32 h-32'/>
-                    <div className='space-y-10 px-0 md:px=1- max-w-6xl'>
-                        <h4 className='text-4xl font-semibold text-center'>
-                            <span className='underline decoration-[#F7AB0A]/50'>
-                                Case Study {i+1} of {projects.length}
-                            </span>
-                            : UPS Clone
-                        </h4>
-                        <p className='text-lg text-center md:text-left'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate deleniti repudiandae atque voluptates harum minus inventore recusandae quam ipsa facere. Quisquam quas eos cum. Magni suscipit fugit natus nam temporibus?
-                            Reiciendis perferendis adipisci unde nam placeat, officia alias veniam maxime fugit necessitatibus exercitationem omnis commodi expedita? Ipsum aliquam deleniti repellat magnam praesentium quod quasi, vel veniam, inventore distinctio modi minima?
-                        </p>
+                        <motion.img
+                            initial={{
+                                y: -300,
+                                opacity: 0
+                            }}
+                            whileInView={{
+                                y: 0,
+                                opacity: 1
+                            }}
+                            transition={{ duration: 1.2 }}
+                            viewport={{ once: true }}
+                            src={urlFor(project.image).url()}
+                            alt=""
+                            className='w-32 h-32' />
+                        <div className='space-y-10 px-0 md:px=1- max-w-6xl'>
+                            <h4 className='text-4xl font-semibold text-center'>
+                                <span className='underline decoration-[#F7AB0A]/50'>
+                                    Case Study {i + 1} of {projects.length}
+                                </span>
+                                : {project.title}
+                            </h4>
+                            <div className='flex items-center space-x-2 justify-center'>
+                                {project.technologies.map((technology) => (
+                                    <img className='h-10 w-10' src={urlFor(technology.image).url()} key={technology._id} alt="" />
+                                ))}
+                            </div>
+                            <p className='text-lg text-center md:text-left'>
+                                {project.summary}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
-        <div className='w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12'/>
-    </motion.div>
-  )
+                ))}
+            </div>
+            <div className='w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12' />
+        </motion.div>
+    )
 }
