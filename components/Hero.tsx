@@ -13,9 +13,9 @@ export default function Hero({ pageInfo }: Props) {
 
     const [text, count] = useTypewriter({
         words: [
-            `Hi, The Name's is ${pageInfo?.name}`,
-            `Guy-who-loves-football.tsx`,
-            `<ButLovesToCodeMore />`,
+            `Hi, my name is ${pageInfo?.name}`,
+            `Girl who loves sushi`,
+            `and loves anything about finance`,
         ],
         loop: true,
         delaySpeed: 2000,
@@ -45,8 +45,8 @@ export default function Hero({ pageInfo }: Props) {
                     <Link href='#skills'>
                         <button className='heroButton'>Skills</button>
                     </Link>
-                    <Link href='#projects'>
-                        <button className='heroButton'>Projects</button>
+                    <Link href='#education'>
+                        <button className='heroButton'>Education</button>
                     </Link>
                 </div>
             </div>

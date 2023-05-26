@@ -28,8 +28,8 @@ export default function ExperienceCard({ experience }: Props) {
         className='w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center'
       />
       <div className='px-0 md:px-10'>
-        <h4 className='text-4xl font-light'>Back-End Engineer</h4>
-        <p className='font-bold text-2xl mt-1'>Telkom Indonesia</p>
+        <h4 className='text-4xl font-light'>{experience.jobTitle}</h4>
+        <p className='font-bold text-2xl mt-1'>{experience.company}</p>
         <div className='flex space-x-2 my-2'>
           {experience.technologies.map((technology) => (
             <img

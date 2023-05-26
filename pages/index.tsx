@@ -14,6 +14,7 @@ import { fetchExperiences } from '@/utils/fetchExperience'
 import { fetchProjects } from '@/utils/fetchProjects'
 import { fetchSocials } from '@/utils/fetchSocials'
 import { fetchSkills } from '@/utils/fetchSkills'
+import { urlFor } from '@/sanity'
 
 type Props = {
   pageInfo: PageInfo;
@@ -49,7 +50,7 @@ export default function Home({ pageInfo, experiences, projects, socials, skills 
         <Skills skills={skills} />
       </section>
 
-      <section id='projects' className='snap-start'>
+      <section id='education' className='snap-start'>
         <Projects projects={projects} />
       </section>
 
@@ -60,7 +61,7 @@ export default function Home({ pageInfo, experiences, projects, socials, skills 
       <Link href="#hero">
         <footer className='sticky bottom-5 w-full cursor-pointer'>
           <div className='flex items-center justify-center'>
-            <img className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0' src={pageInfo.heroImage} alt="" />
+            <img className='h-10 w-10 rounded-full filter grayscale hover:grayscale-0' src={urlFor(pageInfo.heroImage).url()} alt="" />
           </div>
         </footer>
       </Link>
