@@ -1,5 +1,4 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import sanityCli from '@/meyva-portofolio/sanity.cli';
 import { client } from '@/sanity';
 import { PageInfo } from '@/typings';
 import type { NextApiRequest, NextApiResponse } from 'next';
